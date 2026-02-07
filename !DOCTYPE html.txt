@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win $50 Cash App - History Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .option-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .option-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        /* Wheel Styles */
+        .wheel-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 8px solid #00d26a;
+            box-shadow: 0 0 20px rgba(0, 210, 106, 0.5);
+            overflow: hidden;
+            transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .wheel-segment {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            transform-origin: 100% 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+            border-right: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .pointer {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: #ef4444;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            z-index: 10;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+        }
+
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Animations */
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+        }
+        .animate-pulse-green {
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main App Container -->
+    <div id="app" class="w-full max-w-2xl">
+        
+        <!-- Screen 1: Intro / Name Entry -->
+        <div id="screen-intro" class="glass-panel rounded-2xl p-8 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-emerald-600"></div>
+            
+            <div class="mb-6 inline-block p-4 rounded-full bg-green-500/20 animate-pulse-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+
+            <h1 class="text-4xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-500">
+                Win $50 Cash App
+            </h1>
+            <p class="text-gray-300 mb-8 text-lg">History Challenge</p>
+
+            <div class="space-y-4 max-w-md mx-auto">
+                <div class="text-left">
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Enter your name to start</label>
+                    <input type="text" id="username" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none text-white transition-all">
+                </div>
+                <button onclick="startQuiz()" class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-lg font-bold text-lg shadow-lg transform transition hover:scale-[1.02] active:scale-95">
+                    Start Challenge
+                </button>
+            </div>
+            
+            <div class="mt-6 text-xs text-gray-500">
+                * You need 90% accuracy (45/50 correct) to unlock the prize wheel.
+            </div>
+        </div>
+
+        <!-- Screen 2: Quiz Interface -->
+        <div id="screen-quiz" class="hidden glass-panel rounded-2xl p-6 md:p-8">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6 border-b border-slate-700 pb-4">
+                <div>
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Player</span>
+                    <div id="display-name" class="font-bold text-green-400">Guest</div>
+                </div>
+                <div class="text-center">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Score</span>
+                    <div class="font-bold text-xl"><span id="score">0</span>/50</div>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Question</span>
+                    <div class="font-bold text-xl"><span id="q-current">1</span>/50</div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-700 h-2 rounded-full mb-8 overflow-hidden">
+                <div id="progress-bar" class="bg-green-500 h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="mb-8">
+                <h2 id="question-text" class="text-2xl font-bold mb-6 leading-tight min-h-[64px] flex items-center">
+                    Loading Question...
+                </h2>
+                
+                <div id="options-container" class="grid grid-cols-1 gap-3">
+                    <!-- Options injected via JS -->
+                </div>
+            </div>
+
+            <!-- Feedback -->
+            <div id="feedback-msg" class="text-center h-8 font-bold text-lg opacity-0 transition-opacity"></div>
+        </div>
+
+        <!-- Screen 3: Result (Pass/Fail) -->
+        <div id="screen-result" class="hidden glass-panel rounded-2xl p-8 text-center">
+            <div id="result-icon" class="mb-4 text-6xl"></div>
+            <h2 id="result-title" class="text-3xl font-bold mb-2"></h2>
+            <p id="result-desc" class="text-gray-300 mb-6"></p>
+            
+            <div class="bg-slate-800 rounded-lg p-4 mb-6 inline-block min-w-[200px]">
+                <div class="text-sm text-gray-400">Final Score</div>
+                <div id="final-score-display" class="text-4xl font-bold text-white"></div>
+                <div id="accuracy-display" class="text-sm text-green-400 mt-1"></div>
+            </div>
+
+            <div id="wheel-access" class="hidden">
+                <p class="text-green-400 font-bold mb-4 animate-pulse">🎉 You unlocked the Prize Wheel! 🎉</p>
+                <button onclick="goToWheel()" class="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-lg font-bold shadow-lg hover:scale-105 transition-transform">
+                    Spin the Wheel
+                </button>
+            </div>
+
+            <button onclick="location.reload()" class="mt-4 text-gray-400 hover:text-white underline text-sm">
+                Try Again
+            </button>
+        </div>
+
+        <!-- Screen 4: The Wheel -->
+        <div id="screen-wheel" class="hidden glass-panel rounded-2xl p-8 flex flex-col items-center">
+            <h2 class="text-2xl font-bold mb-6 text-center">Spin to win <span class="text-green-400">$50</span>!</h2>
+            
+            <div class="relative mb-8">
+                <div class="pointer"></div>
+                <div id="wheel" class="wheel-container bg-slate-800">
+                    <!-- Segments generated by JS -->
+                </div>
+                <div class="center-circle">SPIN</div>
+            </div>
+
+            <button id="spin-btn" onclick="spinWheel()" class="px-10 py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full font-bold text-xl shadow-xl hover:shadow-green-500/50 transition-all transform hover:-translate-y-1 active:translate-y-0">
+                SPIN NOW
+            </button>
+
+            <div id="wheel-result" class="mt-6 text-xl font-bold h-8"></div>
+            
+            <p class="mt-8 text-xs text-gray-500 max-w-xs text-center">
+                Note: One spin per user. Prizes are distributed within 24 hours to verified accounts.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Data: 50 History Questions ---
+        const questions = [
+            { q: "Who was the first President of the United States?", options: ["Thomas Jefferson", "George Washington", "John Adams", "Abraham Lincoln"], a: 1 },
+            { q: "In which year did World War II end?", options: ["1943", "1944", "1945", "1950"], a: 2 },
+            { q: "Which ancient wonder of the world still stands today?", options: ["Colossus of Rhodes", "Lighthouse of Alexandria", "Great Pyramid of Giza", "Temple of Artemis"], a: 2 },
+            { q: "Who wrote the play 'Romeo and Juliet'?", options: ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"], a: 1 },
+            { q: "What was the name of the ship on which Charles Darwin sailed?", options: ["HMS Beagle", "HMS Victory", "Santa Maria", "Mayflower"], a: 0 },
+            { q: "Which empire was ruled by Julius Caesar?", options: ["Greek Empire", "Roman Empire", "Ottoman Empire", "British Empire"], a: 1 },
+            { q: "The French Revolution began in which year?", options: ["1776", "1789", "1804", "1812"], a: 1 },
+            { q: "Who is known as the 'Father of Computers'?", options: ["Alan Turing", "Bill Gates", "Charles Babbage", "Steve Jobs"], a: 2 },
+            { q: "Which country gifted the Statue of Liberty to the USA?", options: ["United Kingdom", "Germany", "France", "Spain"], a: 2 },
+            { q: "What was the main cause of the American Civil War?", options: ["Taxation", "Slavery", "Land disputes", "Trade"], a: 1 },
+            { q: "Who painted the Mona Lisa?", options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"], a: 2 },
+            { q: "In which year did the Titanic sink?", options: ["1910", "1912", "1914", "1916"], a: 1 },
+            { q: "Which civilization built Machu Picchu?", options: ["Aztec", "Maya", "Inca", "Olmec"], a: 2 },
+            { q: "Who was the first man to step on the moon?", options: ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "Michael Collins"], a: 2 },
+            { q: "What was the name of the first atomic bomb dropped on Japan?", options: ["Fat Man", "Little Boy", "Big Boy", "Thin Man"], a: 1 },
+            { q: "Which war was fought between the North and South regions of the US?", options: ["Revolutionary War", "Civil War", "World War I", "Vietnam War"], a: 1 },
+            { q: "Who discovered penicillin?", options: ["Marie Curie", "Alexander Fleming", "Louis Pasteur", "Isaac Newton"], a: 1 },
+            { q: "What ancient language was spoken in the Roman Empire?", options: ["Greek", "Latin", "Aramaic", "Etruscan"], a: 1 },
+            { q: "Which US state was the last to join the union (1959)?", options: ["Alaska", "Hawaii", "Arizona", "New Mexico"], a: 1 },
+            { q: "Who was the longest-reigning British monarch before Elizabeth II?", options: ["George III", "Victoria", "Henry VIII", "Elizabeth I"], a: 1 },
+            { q: "The Berlin Wall fell in which year?", options: ["1987", "1989", "1991", "1993"], a: 1 },
+            { q: "Who was the leader of Nazi Germany during WWII?", options: ["Joseph Stalin", "Benito Mussolini", "Adolf Hitler", "Winston Churchill"], a: 2 },
+            { q: "What was the name of the first successful English colony in America?", options: ["Plymouth", "Jamestown", "Roanoke", "Salem"], a: 1 },
+            { q: "Which US amendment abolished slavery?", options: ["13th", "14th", "15th", "19th"], a: 0 },
+            { q: "Who invented the telephone?", options: ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Guglielmo Marconi"], a: 1 },
+            { q: "What year did the California Gold Rush start?", options: ["1848", "1850", "1860", "1820"], a: 0 },
+            { q: "Which country was Adolf Hitler born in?", options: ["Germany", "Poland", "Austria", "Hungary"], a: 2 },
+            { q: "What was the name of the first satellite launched into space?", options: ["Explorer 1", "Sputnik 1", "Vostok 1", "Apollo 1"], a: 1 },
+            { q: "Who wrote 'The Communist Manifesto'?", options: ["Vladimir Lenin", "Karl Marx", "Friedrich Nietzsche", "Sigmund Freud"], a: 1 },
+            { q: "Which US president was assassinated in 1963?", options: ["John F. Kennedy", "Abraham Lincoln", "William McKinley", "James Garfield"], a: 0 },
+            { q: "What was the primary trade good on the Silk Road?", options: ["Spices", "Silk", "Gold", "Salt"], a: 1 },
+            { q: "Who was the first female Prime Minister of the United Kingdom?", options: ["Queen Victoria", "Margaret Thatcher", "Theresa May", "Elizabeth II"], a: 1 },
+            { q: "In which city was the Declaration of Independence signed?", options: ["New York", "Boston", "Philadelphia", "Washington D.C."], a: 2 },
+            { q: "What year did the American Revolutionary War end?", options: ["1776", "1781", "1783", "1789"], a: 2 },
+            { q: "Who was the first Emperor of China?", options: ["Kublai Khan", "Sun Yat-sen", "Qin Shi Huang", "Mao Zedong"], a: 2 },
+            { q: "Which battle is considered the turning point of the American Civil War?", options: ["Gettysburg", "Antietam", "Bull Run", "Vicksburg"], a: 0 },
+            { q: "What was the name of the ship that brought the Pilgrims to America?", options: ["Santa Maria", "Mayflower", "Nina", "Pinta"], a: 1 },
+            { q: "Who developed the theory of relativity?", options: ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Stephen Hawking"], a: 2 },
+            { q: "Which country did the US fight in the War of 1812?", options: ["France", "Spain", "Mexico", "United Kingdom"], a: 3 },
+            { q: "Who was the first person to circumnavigate the globe?", options: ["Christopher Columbus", "Ferdinand Magellan", "Marco Polo", "Vasco da Gama"], a: 1 },
+            { q: "What was the name of the treaty that ended World War I?", options: ["Treaty of Paris", "Treaty of Versailles", "Treaty of Ghent", "Treaty of Tordesillas"], a: 1 },
+            { q: "Which ancient city was buried by a volcanic eruption in 79 AD?", options: ["Rome", "Athens", "Pompeii", "Carthage"], a: 2 },
+            { q: "Who was the first Secretary of the Treasury of the US?", options: ["Thomas Jefferson", "Alexander Hamilton", "John Adams", "Benjamin Franklin"], a: 1 },
+            { q: "What was the name of the first permanent English settlement in North America?", options: ["Plymouth", "Roanoke", "Jamestown", "Boston"], a: 2 },
+            { q: "Which amendment gives US citizens the right to bear arms?", options: ["1st", "2nd", "4th", "5th"], a: 1 },
+            { q: "Who painted the ceiling of the Sistine Chapel?", options: ["Leonardo da Vinci", "Raphael", "Michelangelo", "Donatello"], a: 2 },
+            { q: "What year did the Industrial Revolution begin (approx)?", options: ["1600s", "1700s", "1800s", "1900s"], a: 1 },
+            { q: "Who was the first woman to win a Nobel Prize?", options: ["Marie Curie", "Mother Teresa", "Dorothy Hodgkin", "Irène Joliot-Curie"], a: 0 },
+            { q: "Which US state was an independent republic before joining the union?", options: ["California", "Hawaii", "Texas", "Alaska"], a: 2 },
+            { q: "Who was the first person to reach the South Pole?", options: ["Robert Peary", "Roald Amundsen", "Ernest Shackleton", "Edmund Hillary"], a: 1 }
+        ];
+
+        // --- State Management ---
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userName = "";
+        let isSpinning = false;
+
+        // --- Functions ---
+
+        function startQuiz() {
+            const nameInput = document.getElementById('username').value.trim();
+            if (!nameInput) {
+                const input = document.getElementById('username');
+                input.classList.add('shake', 'border-red-500');
+                setTimeout(() => input.classList.remove('shake', 'border-red-500'), 500);
+                return;
+            }
+            
+            userName = nameInput;
+            document.getElementById('display-name').innerText = userName;
+            
+            // Transition
+            document.getElementById('screen-intro').classList.add('hidden');
+            document.getElementById('screen-quiz').classList.remove('hidden');
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = questions[currentQuestionIndex];
+            document.getElementById('q-current').innerText = currentQuestionIndex + 1;
+            document.getElementById('question-text').innerText = q.q;
+            
+            // Update Progress Bar
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn w-full text-left p-4 rounded-lg bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white font-medium";
+                btn.innerText = opt;
+                btn.onclick = () => handleAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            // Hide feedback
+            document.getElementById('feedback-msg').style.opacity = '0';
+        }
+
+        function handleAnswer(selectedIndex, btnElement) {
+            const q = questions[currentQuestionIndex];
+            const allBtns = document.querySelectorAll('.option-btn');
+            
+            // Disable all buttons
+            allBtns.forEach(b => b.disabled = true);
+
+            const feedback = document.getElementById('feedback-msg');
+
+            if (selectedIndex === q.a) {
+                // Correct
+                score++;
+                document.getElementById('score').innerText = score;
+                btnElement.classList.remove('bg-slate-700', 'hover:bg-slate-600');
+                btnElement.classList.add('bg-green-600', 'border-green-400');
+                feedback.innerText = "Correct!";
+                feedback.className = "text-center h-8 font-bold text-lg text-green-400 transition-opacity";
+            } else {
+                // Incorrect
+                btnElement.classList.remove('bg-slate-700', 'hover:bg-slate-600');
+                btnElement.classList.add('bg-red-600', 'border-red-400');
+                // Highlight correct one
+                allBtns[q.a].classList.add('bg-green-600', 'border-green-400');
+                feedback.innerText = "Incorrect!";
+                feedback.className = "text-center h-8 font-bold text-lg text-red-400 transition-opacity";
+            }
+
+            feedback.style.opacity = '1';
+
+            // Next question delay
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion();
+                } else {
+                    finishQuiz();
+                }
+            }, 1200);
+        }
+
+        function finishQuiz() {
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-result').classList.remove('hidden');
+            
+            const percentage = (score / questions.length) * 100;
+            const passed = percentage >= 90;
+
+            document.getElementById('final-score-display').innerText = `${score}/${questions.length}`;
+            document.getElementById('accuracy-display').innerText = `${percentage.toFixed(0)}% Accuracy`;
+
+            if (passed) {
+                document.getElementById('result-icon').innerText = "🏆";
+                document.getElementById('result-title').innerText = "Congratulations!";
+                document.getElementById('result-title').className = "text-3xl font-bold mb-2 text-green-400";
+                document.getElementById('result-desc').innerText = `Great job, ${userName}! You passed the history challenge.`;
+                document.getElementById('wheel-access').classList.remove('hidden');
+            } else {
+                document.getElementById('result-icon').innerText = "❌";
+                document.getElementById('result-title').innerText = "Challenge Failed";
+                document.getElementById('result-title').className = "text-3xl font-bold mb-2 text-red-400";
+                document.getElementById('result-desc').innerText = `Sorry, ${userName}. You needed 90% to unlock the prize wheel. You got ${percentage.toFixed(0)}%.`;
+            }
+        }
+
+        function goToWheel() {
+            document.getElementById('screen-result').classList.add('hidden');
+            document.getElementById('screen-wheel').classList.remove('hidden');
+            initWheel();
+        }
+
+        // --- Wheel Logic ---
+        function initWheel() {
+            const wheel = document.getElementById('wheel');
+            wheel.innerHTML = ''; // Clear
+            
+            const segments = [
+                { label: "$50 Cash", color: "#10b981", type: "win" }, // Green
+                { label: "Nothing", color: "#334155", type: "lose" }, // Slate
+                { label: "Nothing", color: "#475569", type: "lose" }, // Slate lighter
+                { label: "Nothing", color: "#334155", type: "lose" },
+                { label: "Nothing", color: "#475569", type: "lose" },
+                { label: "Nothing", color: "#334155", type: "lose" },
+                { label: "Nothing", color: "#475569", type: "lose" },
+                { label: "Nothing", color: "#334155", type: "lose" }
+            ];
+
+            const numSegments = segments.length;
+            const anglePerSegment = 360 / numSegments;
+
+            segments.forEach((seg, i) => {
+                const el = document.createElement('div');
+                el.className = 'wheel-segment';
+                // Rotate to position
+                el.style.transform = `rotate(${i * anglePerSegment}deg) skewY(-${90 - anglePerSegment}deg)`;
+                el.style.background = seg.color;
+                
+                // Text positioning
+                const text = document.createElement('span');
+                text.innerText = seg.label;
+                text.style.transform = `skewY(${90 - anglePerSegment}deg) rotate(${anglePerSegment / 2}deg)`;
+                text.style.position = 'absolute';
+                text.style.left = '20px';
+                text.style.top = '40%';
+                
+                el.appendChild(text);
+                wheel.appendChild(el);
+            });
+        }
+
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+            
+            const wheel = document.getElementById('wheel');
+            const btn = document.getElementById('spin-btn');
+            const resultText = document.getElementById('wheel-result');
+            
+            btn.disabled = true;
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+            resultText.innerText = "";
+
+            // Logic: Always land on "Nothing" (Indices 1-7 are "Nothing" in our array, 0 is Win)
+            // We want to land on anything EXCEPT index 0.
+            // Let's pick a random "Nothing" index (1 to 7).
+            const losingIndices = [1, 2, 3, 4, 5, 6, 7];
+            const targetIndex = losingIndices[Math.floor(Math.random() * losingIndices.length)];
+            
+            const numSegments = 8;
+            const anglePerSegment = 360 / numSegments;
+            
+            // Calculate rotation
+            // The pointer is at the top (0deg).
+            // To land on a segment, we need to rotate the wheel such that the segment is at the top.
+            // If we rotate by X degrees, the segment at angle X (mod 360) moves to 0.
+            // Wait, standard CSS rotation logic:
+            // We want the center of the target segment to align with 270deg (top) or 0deg depending on setup.
+            // Let's assume standard: 0deg is initial. 
+            // To bring segment i to the top (where the pointer is), we rotate by (360 - (i * anglePerSegment) - (anglePerSegment/2)).
+            
+            // Let's simplify: 
+            // We want to land on targetIndex.
+            // We need to spin at least 5 times (1800 deg) + specific offset.
+            
+            const offset = 360 - (targetIndex * anglePerSegment) - (anglePerSegment / 2);
+            const totalRotation = 1800 + offset + (Math.random() * 10 - 5); // Add slight jitter for realism
+            
+            wheel.style.transform = `rotate(${totalRotation}deg)`;
+
+            setTimeout(() => {
+                resultText.innerHTML = "<span class='text-gray-400'>So close! You landed on Nothing.</span>";
+                createConfetti(false); // No celebration
+            }, 4000);
+        }
+
+        function createConfetti(isWin) {
+            const colors = isWin ? ['#10b981', '#fbbf24', '#f59e0b'] : ['#64748b', '#94a3b8'];
+            for (let i = 0; i < 50; i++) {
+                const conf = document.createElement('div');
+                conf.className = 'confetti';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                conf.style.opacity = Math.random();
+                document.body.appendChild(conf);
+                
+                setTimeout(() => conf.remove(), 4000);
+            }
+        }
+
+    </script>
+</body>
+</html>
